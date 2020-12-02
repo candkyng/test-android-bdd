@@ -1,5 +1,7 @@
+@home_screen
 Feature: Tests for Home screen functionality
 
+  @default
   Scenario: Default values on Home screen is "Foot" and "Centimeter"
     Given I am on Home screen
     Then Left unit picker value should be "Foot"
@@ -11,6 +13,7 @@ Feature: Tests for Home screen functionality
     When I press on Clear button
     Then Show All button should be disabled
 
+  @conversions
   Scenario Outline: Verify conversion from Foot to Inch
     Given I am on Home screen
     When Change Left unit picker to "Foot"
