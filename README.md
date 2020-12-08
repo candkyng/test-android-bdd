@@ -20,7 +20,7 @@ Alternatively, you may install [appium](https://www.npmjs.com/package/appium) di
         gem install appium_lib
         gem install cucumber
 
-    If you already have these libraries installed at older version, uninstall them using `gem uninstall` command and reinstall them using the same command as above to install the latest version.
+    If you already have these libraries installed at an older version, uninstall them using `gem uninstall` command and reinstall them using the same command as above to install the latest version.
 
 1. Install [Java SE 8 from Oracle](https://www.oracle.com/ca-en/java/technologies/javase/javase-jdk8-downloads.html)
 1. Install [Android Studio and SDK](https://developer.android.com/studio#downloads), which includes the adb commandline tool
@@ -32,8 +32,9 @@ Choose _without VirtualBox_ option only if you already have _Oracle VM VirtualBo
 1. Create the following environment variables:
 
      Variable    | Value |
-     :------      |:---|
+     :------     |:---   |
      <sup>ANDROID_HOME | <sup>C:\Users\\<_USER_\>\AppData\Local\Android\Sdk |
+     <sup>ANDROID_SWT  | <sup>%ANROID_HOME%\tools\lib\x86_64 |
      <sup>JAVA_HOME    | <sup>C:\Program Files\Java\jre1.8.0_202 |
 
 1. Add the following paths to system variable PATH:
@@ -42,7 +43,7 @@ Choose _without VirtualBox_ option only if you already have _Oracle VM VirtualBo
     * %ANDROID_HOME%\tools\bin
     * %ANDROID_HOME%\platform-tools
 
- :sunglasses: 
+:sunglasses: 
 TIPS: In any case, if you need to modify the above configuration during the test please restart appium server to pick up the changes!
 
 ## Run test
@@ -61,7 +62,7 @@ TIPS: In any case, if you need to modify the above configuration during the test
 
 ## FAQ:    
 #### How to remove ANSICON warning and get coloured output:         
-
+Caution: Installing ANSICON may cause adb command not to work. However, you can always uninstall ANSICON if any issue occurs
 When running the test if you see a warning regarding ANSICON, you may follow the steps below to get coloured output on command prompt:     
 1. Get ANSICON package from https://github.com/adoxa/ansicon/downloads
 1. Unzip it to a local folder. 
@@ -69,3 +70,6 @@ When running the test if you see a warning regarding ANSICON, you may follow the
 1. Run the following to install ANSICON
         
             ansicon.exe –i
+1. Use this command to uninstall ANSICON if issue occurs
+
+            ansicon.exe –u3

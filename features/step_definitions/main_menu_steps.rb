@@ -1,19 +1,25 @@
 Given('I am on Home screen') do
-  log("Landed on home screen")
+  find_element(id: "action_search")
+  find_element(id: "action_add_favorites")
 end
 
-When('I press on menu icon') do
-  log("I press on menu icon")
+When(/^I press on menu icon$/) do
+  find_element(accessibility_id: "Open navigation drawer").click
 end
 
 Then('I should see left side menu') do
-  log("I should see left side menu")
+  text("Unit Converter")
 end
 
 When('I press on My conversions button') do
-  log("My conversions pressed")
+  text("My conversions").click
 end
 
 Then('I land on My conversions screen') do
-  log("My conversions screen")
+  text("My conversions")
+end
+
+And(/^I see no personal conversion created yet$/) do
+  find_element(id: "btn_new_custom_conversion")
+  find_element(id: "text_info_no_custom_conversions")
 end
