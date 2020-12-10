@@ -36,7 +36,6 @@ Feature: Tests for Home screen functionality
     And I press on Favorite conversions
     Then I verify "Length" added to Favorite conversions list
 
-  @wip
   Scenario Outline: User is able to search for conversion
     Given I am on Home screen
     When I press on search button
@@ -49,3 +48,4 @@ Feature: Tests for Home screen functionality
     Examples:
       | leftUnit    | rightUnit      | searchText |
       | "Celsius" | "Fahrenheit" | "Temperature" |
+      | "Atmosphere" | "Bar"     | "Pressure"    |

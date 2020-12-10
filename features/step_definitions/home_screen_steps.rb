@@ -1,13 +1,15 @@
 require "test/unit/assertions"
+require "minitest/autorun"
+
 
 Then('Left unit picker value should be {string}') do |string|
-  actual_picker_text  = find_element(id: "select_unit_spinner").text
-  log(actual_picker_text)
-  assert_equal actual_picker_text, string, "Expected unit picker value is #{string}, actual value is #{actual_picker_text}"
+  actual_picker_text  = find_elements(id: "select_unit_spinner")[0].text
+  assert_equal actual_picker_text, string
 end
 
 Then('Right unit picker value should be {string}') do |string|
-  log('Right unit picker value is ' + string)
+  actual_picker_text  = find_elements(id: "select_unit_spinner")[1].text
+  assert_equal actual_picker_text, string
 end
 
 Then(/^Show All button should be (enabled|disabled|undefined)$/) do |state|
@@ -60,8 +62,9 @@ And(/^I enter "([^"]*)" in search field$/) do |search_text|
 end
 
 And(/^I press return button on soft keyboard$/) do
-  Appium::TouchAction.new.tap(x:0.99,y:0.99, count:1).perform
   sleep(2)
+  Appium::TouchAction.new.tap(x:0.99,y:0.99, count:1).perform
+
 end
 
 Then(/^I verify "([^"]*)" is the current conversion$/) do |conversion|
