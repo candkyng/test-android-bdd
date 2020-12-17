@@ -64,9 +64,8 @@ end
 And(/^I press return button on soft keyboard$/) do
   sleep(2)
   Appium::TouchAction.new.tap(x:0.99,y:0.99, count:1).perform
-
 end
 
 Then(/^I verify "([^"]*)" is the current conversion$/) do |conversion|
-  text(conversion)
+  find_element(id: "action_bar").find_element(xpath: "//android.widget.TextView[@text='#{conversion}']" )
 end
