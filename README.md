@@ -15,10 +15,11 @@ Alternatively, you may install [appium](https://www.npmjs.com/package/appium) di
 
         npm install -g appium
         appium
-1. Install Ruby libraries [_appium_lib_](https://rubygems.org/gems/appium_lib) and [_cucumber_](https://rubygems.org/gems/cucumber) from command line
+1. Install Ruby libraries [_appium_lib_](https://rubygems.org/gems/appium_lib), [_cucumber_](https://rubygems.org/gems/cucumber) and [minitest](https://rubygems.org/gems/minitest) from command line
 
         gem install appium_lib
         gem install cucumber
+        gem install minitest
 
     If you already have these libraries installed at an older version, uninstall them using `gem uninstall` command and reinstall them using the same command as above to install the latest version.
 

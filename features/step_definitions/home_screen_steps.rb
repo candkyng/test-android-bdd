@@ -21,11 +21,6 @@ Then(/^Show All button should be (enabled|disabled)$/) do |state|
   end
 end
 
-When('I press on Clear button') do
-  log('I press on Clear button')
-end
-
-
 When(/^I type ([^"]*) in application keypad$/) do |target|
   digits = target.split("")
   digits.each do |digit|
@@ -56,7 +51,8 @@ Then(/^I press on Favorite conversions$/) do
 end
 
 And(/^I verify "([^"]*)" added to Favorite conversions list$/) do |unit_conversion|
-  text(unit_conversion)
+  favourite_conversion = find_element(id: "favorites_item_hint").text
+  assert_equal favourite_conversion, unit_conversion
 end
 
 And(/^"([^"]*)" is not added to Favorite$/) do |unit_conversion|
