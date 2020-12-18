@@ -12,8 +12,13 @@ Then('Right unit picker value should be {string}') do |string|
   assert_equal actual_picker_text, string
 end
 
-Then(/^Show All button should be (enabled|disabled|undefined)$/) do |state|
-  log('Show All button is ' + state)
+Then(/^Show All button should be (enabled|disabled)$/) do |state|
+  show_all_enabled = find_element(id: "btn_show_all").enabled?
+  if show_all_enabled == true
+    assert_equal state, "enabled"
+  else
+    assert_equal state, "disabled"
+  end
 end
 
 When('I press on Clear button') do
@@ -21,7 +26,7 @@ When('I press on Clear button') do
 end
 
 
-When(/^I type ([^"]*) to target text field$/) do |target|
+When(/^I type ([^"]*) in application keypad$/) do |target|
   digits = target.split("")
   digits.each do |digit|
     find_element(id: "keypad").find_element(xpath: "//android.widget.Button[@text='#{digit}']").click

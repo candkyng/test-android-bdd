@@ -7,10 +7,13 @@ Feature: Tests for Home screen functionality
     Then Left unit picker value should be "Foot"
     And Right unit picker value should be "Centimeter"
 
-  Scenario: Show All button should be enabled at launched
+
+  Scenario: Show All button should be disabled at launched, enabled when number is pressed, disabled when Clear is pressed
     Given I am on Home screen
+    Then Show All button should be disabled
+    When I type 1 in application keypad
     Then Show All button should be enabled
-    When I press on Clear button
+    When I type C in application keypad
     Then Show All button should be disabled
 
   @conversions
@@ -20,13 +23,13 @@ Feature: Tests for Home screen functionality
     And Change Right unit picker to "Centimeter"
     Then Left unit picker value should be "Foot"
     And Right unit picker value should be "Centimeter"
-    When I type <target> to target text field
+    When I type <target> in application keypad
     Then I should see result as <result>
     Examples:
       |target |result  |
       |1    |30.48     |
       |2    |60.96     |
-      |9    |274.32    |
+      |9.2  |280.416   |
       |101  | 3 078.48 |
 
   Scenario: User able to add current conversion to Favorites list
