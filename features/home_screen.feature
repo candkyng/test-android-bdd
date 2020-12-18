@@ -14,19 +14,20 @@ Feature: Tests for Home screen functionality
     Then Show All button should be disabled
 
   @conversions
-  Scenario Outline: Verify conversion from Foot to Inch
+  Scenario Outline: Verify conversion from Foot to Centimeter
     Given I am on Home screen
     When Change Left unit picker to "Foot"
-    And Change Right unit picker to "Inch"
+    And Change Right unit picker to "Centimeter"
     Then Left unit picker value should be "Foot"
-    And Right unit picker value should be "Inch"
+    And Right unit picker value should be "Centimeter"
     When I type <target> to target text field
     Then I should see result as <result>
     Examples:
-      |target |result|
-      |1  |12        |
-      |2  |24        |
-
+      |target |result  |
+      |1    |30.48     |
+      |2    |60.96     |
+      |9    |274.32    |
+      |101  | 3 078.48 |
 
   Scenario: User able to add current conversion to Favorites list
     Given I am on Home screen

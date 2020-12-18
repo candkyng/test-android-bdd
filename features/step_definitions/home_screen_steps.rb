@@ -22,11 +22,16 @@ end
 
 
 When(/^I type ([^"]*) to target text field$/) do |target|
-  log("target is " + target)
+  digits = target.split("")
+  digits.each do |digit|
+    find_element(id: "keypad").find_element(xpath: "//android.widget.Button[@text='#{digit}']").click
+  end
+
 end
 
 Then(/^I should see result as ([^"]*)$/) do |result|
-  log("I see result " + result)
+  value = find_element(id: "target_value").text
+  assert_equal value, result
 end
 
 When(/^Change Left unit picker to "([^"]*)"$/) do |arg|
