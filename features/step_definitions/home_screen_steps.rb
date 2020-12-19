@@ -77,3 +77,7 @@ end
 Then(/^I verify "([^"]*)" is the current conversion$/) do |conversion|
   find_element(id: "action_bar").find_element(xpath: "//android.widget.TextView[@text='#{conversion}']" )
 end
+
+When(/^I press the switch unit button$/) do
+  find_element(id: "img_switch").click
+end

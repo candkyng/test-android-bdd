@@ -54,7 +54,6 @@ Feature: Tests for Home screen functionality
       | "Celsius" | "Fahrenheit" | "Temperature" |
       | "Atmosphere" | "Bar"     | "Pressure"    |
 
-  @wip
   Scenario: User is able to select a different conversion to convert values
     Given I am on Home screen
     When I press on menu icon
@@ -62,3 +61,11 @@ Feature: Tests for Home screen functionality
     Then Change Right unit picker to "Cup"
     When I type 1 in application keypad
     Then I should see result as 15.1416
+
+  Scenario: User is able to reverse the units in the conversion by clicking switch unit button
+    Given I am on Home screen
+    Then Left unit picker value should be "Foot"
+    And Right unit picker value should be "Centimeter"
+    When I press the switch unit button
+    Then Left unit picker value should be "Centimeter"
+    And Right unit picker value should be "Foot"
