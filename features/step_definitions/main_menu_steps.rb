@@ -11,9 +11,7 @@ Then('I should see left side menu') do
   text("Unit Converter")
 end
 
-When('I press on My conversions button') do
-  text("My conversions").click
-end
+
 
 Then('I land on My conversions screen') do
   text("My conversions")
@@ -22,4 +20,9 @@ end
 And(/^I see no personal conversion created yet$/) do
   find_element(id: "btn_new_custom_conversion")
   find_element(id: "text_info_no_custom_conversions")
+end
+
+Then(/^I select "([^"]*)" from menu$/) do |button|
+  # find_element(id: "category_list_drawer").text(button).click
+  text(button).click
 end

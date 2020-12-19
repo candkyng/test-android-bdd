@@ -4,12 +4,12 @@ require "minitest/autorun"
 
 Then('Left unit picker value should be {string}') do |string|
   actual_picker_text  = find_elements(id: "select_unit_spinner")[0].text
-  assert_equal actual_picker_text, string
+  assert_equal string, actual_picker_text
 end
 
 Then('Right unit picker value should be {string}') do |string|
   actual_picker_text  = find_elements(id: "select_unit_spinner")[1].text
-  assert_equal actual_picker_text, string
+  assert_equal  string, actual_picker_text
 end
 
 Then(/^Show All button should be (enabled|disabled)$/) do |state|
@@ -34,12 +34,14 @@ Then(/^I should see result as ([^"]*)$/) do |result|
   assert_equal value, result
 end
 
-When(/^Change Left unit picker to "([^"]*)"$/) do |arg|
-  log("Left unit picker is " + arg)
+When(/^Change Left unit picker to "([^"]*)"$/) do |unit|
+  find_elements(id: "select_unit_spinner")[0].click
+  find_in_list(unit)
 end
 
-And(/^Change Right unit picker to "([^"]*)"$/) do |arg|
-  log("Right unit picker is " + arg)
+And(/^Change Right unit picker to "([^"]*)"$/) do |unit|
+  find_elements(id: "select_unit_spinner")[1].click
+  find_in_list(unit)
 end
 
 Then(/^I press on Add to Favorites icon$/) do

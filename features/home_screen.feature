@@ -17,20 +17,20 @@ Feature: Tests for Home screen functionality
     Then Show All button should be disabled
 
   @conversions
-  Scenario Outline: Verify conversion from Foot to Centimeter
+  Scenario Outline: Verify length conversions
     Given I am on Home screen
-    When Change Left unit picker to "Foot"
-    And Change Right unit picker to "Centimeter"
-    Then Left unit picker value should be "Foot"
-    And Right unit picker value should be "Centimeter"
+    When Change Left unit picker to "<leftUnit>"
+    And Change Right unit picker to "<rightUnit>"
+    Then Left unit picker value should be "<leftUnit>"
+    And Right unit picker value should be "<rightUnit>"
     When I type <target> in application keypad
     Then I should see result as <result>
     Examples:
-      |target |result  |
-      |1    |30.48     |
-      |2    |60.96     |
-      |9.2  |280.416   |
-      |101  | 3 078.48 |
+      |leftUnit | rightUnit |target |result  |
+      |Foot     | Centimeter|1      |30.48   |
+      |Inch     | Centimeter|2      |5.08    |
+      |Mile     | Kilometer |9.2    |14.806  |
+      |Meter| Foot      |101    |331.3648|
 
   Scenario: User able to add current conversion to Favorites list
     Given I am on Home screen
@@ -53,3 +53,12 @@ Feature: Tests for Home screen functionality
       | leftUnit    | rightUnit      | searchText |
       | "Celsius" | "Fahrenheit" | "Temperature" |
       | "Atmosphere" | "Bar"     | "Pressure"    |
+
+  @wip
+  Scenario: User is able to select a different conversion to convert values
+    Given I am on Home screen
+    When I press on menu icon
+    Then I select "Volume" from menu
+    Then Change Right unit picker to "Cup"
+    When I type 1 in application keypad
+    Then I should see result as 15.1416

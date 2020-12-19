@@ -3,7 +3,7 @@ Feature: As an App user, I want to create and manage my conversions
   Scenario: I can create a custom conversion successfully
     Given I am on Home screen
     When I press on menu icon
-    Then I press on My conversions button
+    Then I select "My conversions" from menu
     Then I land on My conversions screen
     When I press on Create Your First Conversion button
     Then I enter "Weight" as Conversion Name
