@@ -35,7 +35,7 @@ Choose _without VirtualBox_ option only if you already have _Oracle VM VirtualBo
      Variable    | Value |
      :------     |:---   |
      <sup>ANDROID_HOME | <sup>C:\Users\\<_USER_\>\AppData\Local\Android\Sdk |
-     <sup>ANDROID_SWT  | <sup>%ANROID_HOME%\tools\lib\x86_64 |
+     <sup>ANDROID_SWT  | <sup>%ANDROID_HOME%\tools\lib\x86_64 |
      <sup>JAVA_HOME    | <sup>C:\Program Files\Java\jre1.8.0_202 |
 
 1. Add the following paths to system variable PATH:
@@ -50,16 +50,18 @@ TIPS: In any case, if you need to modify the above configuration during the test
 ## Run test
 1. Start virtual device
 1. Launch Appium and start server
-1. Launch windows command prompt, navigate to the test-android-bdd project folder and run command:
+1. Launch windows command prompt, navigate to the test-android-bdd project folder and run test with profile:
+
     * To run all scenarios: 
         
-            cucumber --publish-quiet
+            cucumber -p full
+    
+    * To run regression scenarios: 
+        
+            cucumber -p regression
 
-    * To run test scenarios with tags (e.g. tag @default)
-
-            cucumber -t @default --publish-quiet
-
-1. Test result will be shown on command prompt. Use --publish option instead to publish to cucumber report
+1. Cucumber profiles "full" and "regression" are configured in _cucumber.yml_ file.
+1. Test result will be generated in report.html and on command prompt.
 
 ## FAQ:    
 #### How to remove ANSICON warning and get coloured output:         

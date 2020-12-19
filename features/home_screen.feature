@@ -1,15 +1,16 @@
-@home_screen
-Feature: Tests for Home screen functionality
+@home
+Feature: As an App user, I want to be able to convert values using existing conversions
+
+  Background:
+    Given I am on Home screen
 
   @default
   Scenario: Default values on Home screen is "Foot" and "Centimeter"
-    Given I am on Home screen
     Then Left unit picker value should be "Foot"
     And Right unit picker value should be "Centimeter"
 
-
+  @show_all
   Scenario: Show All button should be disabled at launched, enabled when number is pressed, disabled when Clear is pressed
-    Given I am on Home screen
     Then Show All button should be disabled
     When I type 1 in application keypad
     Then Show All button should be enabled
@@ -18,7 +19,6 @@ Feature: Tests for Home screen functionality
 
   @conversions
   Scenario Outline: Verify length conversions
-    Given I am on Home screen
     When Change Left unit picker to "<leftUnit>"
     And Change Right unit picker to "<rightUnit>"
     Then Left unit picker value should be "<leftUnit>"
@@ -32,16 +32,15 @@ Feature: Tests for Home screen functionality
       |Mile     | Kilometer |9.2    |14.806  |
       |Meter| Foot      |101    |331.3648|
 
+  @favourite
   Scenario: User able to add current conversion to Favorites list
-    Given I am on Home screen
-    And "Length" is not added to Favorite
-    Then I press on Add to Favorites icon
-    When I press on menu icon
+    When I press on Add to Favorites icon
+    Then I press on menu icon
     And I press on Favorite conversions
     Then I verify "Length" added to Favorite conversions list
 
+  @search
   Scenario Outline: User is able to search for conversion
-    Given I am on Home screen
     When I press on search button
     And I enter <searchText> in search field
     And I press return button on soft keyboard
@@ -54,18 +53,16 @@ Feature: Tests for Home screen functionality
       | "Celsius" | "Fahrenheit" | "Temperature" |
       | "Atmosphere" | "Bar"     | "Pressure"    |
 
+  @conversions
   Scenario: User is able to select a different conversion to convert values
-    Given I am on Home screen
     When I press on menu icon
     Then I select "Volume" from menu
     Then Change Right unit picker to "Cup"
     When I type 1 in application keypad
     Then I should see result as 15.1416
 
+  @switch_unit
   Scenario: User is able to reverse the units in the conversion by clicking switch unit button
-    Given I am on Home screen
-    Then Left unit picker value should be "Foot"
-    And Right unit picker value should be "Centimeter"
     When I press the switch unit button
     Then Left unit picker value should be "Centimeter"
     And Right unit picker value should be "Foot"

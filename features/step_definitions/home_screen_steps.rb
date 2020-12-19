@@ -57,10 +57,6 @@ And(/^I verify "([^"]*)" added to Favorite conversions list$/) do |unit_conversi
   assert_equal favourite_conversion, unit_conversion
 end
 
-And(/^"([^"]*)" is not added to Favorite$/) do |unit_conversion|
-
-end
-
 When(/^I press on search button$/) do
   find_element(id: "action_search").click
 end

@@ -1,7 +1,10 @@
+@custom
 Feature: As an App user, I want to create and manage my conversions
 
-  Scenario: I can create a custom conversion successfully
+  Background:
     Given I am on Home screen
+
+  Scenario: I can create a custom conversion successfully
     When I press on menu icon
     Then I select "My conversions" from menu
     Then I land on My conversions screen
