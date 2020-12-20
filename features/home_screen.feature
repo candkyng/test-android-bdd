@@ -30,7 +30,7 @@ Feature: As an App user, I want to be able to convert values using existing conv
       |Foot     | Centimeter|1      |30.48   |
       |Inch     | Centimeter|2      |5.08    |
       |Mile     | Kilometer |9.2    |14.806  |
-      |Meter| Foot      |101    |331.3648|
+      |Meter    | Foot      |101    |331.3648|
 
   @favourite
   Scenario: User able to add current conversion to Favorites list
@@ -42,16 +42,16 @@ Feature: As an App user, I want to be able to convert values using existing conv
   @search
   Scenario Outline: User is able to search for conversion
     When I press on search button
-    And I enter <searchText> in search field
+    And I enter "<searchText>" in search field
     And I press return button on soft keyboard
     Then I am on Home screen
-    And I verify <searchText> is the current conversion
-    And Left unit picker value should be <leftUnit>
-    And Right unit picker value should be <rightUnit>
+    And I verify "<searchText>" is the current conversion
+    And Left unit picker value should be "<leftUnit>"
+    And Right unit picker value should be "<rightUnit>"
     Examples:
       | leftUnit    | rightUnit      | searchText |
-      | "Celsius" | "Fahrenheit" | "Temperature" |
-      | "Atmosphere" | "Bar"     | "Pressure"    |
+      | Celsius     | Fahrenheit     | Temperature |
+      | Atmosphere  | Bar           | Pressure    |
 
   @conversions
   Scenario: User is able to select a different conversion to convert values
