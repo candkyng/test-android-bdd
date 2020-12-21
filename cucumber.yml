@@ -1,3 +1,3 @@
 full: --format html --out report.html --format pretty --publish-quiet
 regression: -t '@conversions or @favourite or @search or @custom' --format html --out report.html --format pretty --publish-quiet
-wip: -t @wip --format html --out report.html --format pretty --publish
+wip: -t @main --format html --out report.html --format pretty --publish

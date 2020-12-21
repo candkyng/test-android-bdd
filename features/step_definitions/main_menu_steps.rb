@@ -7,14 +7,8 @@ When(/^I press on menu icon$/) do
   find_element(accessibility_id: "Open navigation drawer").click
 end
 
-Then('I should see left side menu') do
-  text("Unit Converter")
-end
-
-
-
-Then('I land on My conversions screen') do
-  text("My conversions")
+Then(/^I land on "([^"]*)" screen$/) do |title|
+  find_element(id: "action_bar").find_element(xpath: "//android.widget.TextView[@text='#{title}']" )
 end
 
 And(/^I see no personal conversion created yet$/) do
@@ -23,6 +17,11 @@ And(/^I see no personal conversion created yet$/) do
 end
 
 Then(/^I select "([^"]*)" from menu$/) do |button|
-  # find_element(id: "category_list_drawer").text(button).click
   text(button).click
 end
+
+And(/^I see message to select conversions as favorite$/) do
+  message = find_element(id: "text_info_favorites").text
+  assert_equal "Select conversions as favorite and they will appear here", message
+end
+
