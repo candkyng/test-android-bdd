@@ -45,8 +45,9 @@ Feature: As the unit converter app user, I would like to be able to retrieve and
     Then I should see result as 4 082.328
 
   Scenario: I retrieve a conversion from history which requires scrolling
-    When I run conversions "Length, ...." using default units
-    When I click on conversion "Length" ("Foot" to "Centimeter") in the History
+    Given I run conversions "Length,Area,Volume,Weight,Force,Speed,Acceleration,Energy" using default units
+    When I open History
+    And I click on conversion "Length" ("Foot" to "Centimeter") in the History
     Then I verify "Length" is the current conversion
     And Left unit picker value should be "Foot"
     And Right unit picker value should be "Centimeter"

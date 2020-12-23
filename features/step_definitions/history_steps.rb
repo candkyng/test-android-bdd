@@ -12,19 +12,7 @@ And(/^I see no history right now$/) do
 end
 
 When(/^I convert "([^"]*)" "([^"]*)" from "([^"]*)" to "([^"]*)"$/) do |conversion, value, leftUnit, rightUnit|
-  find_element(accessibility_id: "Open navigation drawer").click
-  find_menu_item(conversion).click
-  find_element(id: "action_bar").find_element(xpath: "//android.widget.TextView[@text='#{conversion}']" )
-
-  if leftUnit != left_spinner_selected_text()
-    find_elements(id: "select_unit_spinner")[0].click
-    find_in_list(leftUnit)
-  end
-  if rightUnit != right_spinner_selected_text()
-    find_elements(id: "select_unit_spinner")[1].click
-    find_in_list(rightUnit)
-  end
-  tap_key(value)
+  convert_value(conversion,leftUnit,rightUnit,value)
 end
 
 Then(/^Conversion "([^"]*)" \("([^"]*)" to "([^"]*)"\) is listed \#(\d) in History$/) do |conversion, leftUnit, rightUnit, nth|
@@ -63,7 +51,10 @@ When(/^I click on "([^"]*)" in My Conversions$/) do |conversion|
   get_conversion_in_custom(conversion).click
 end
 
-When(/^I run conversions "([^"]*)" using default units$/) do |conversions|
-  pending
+When(/^I run conversions "([^"]*)" using default units$/) do |conversions_str|
+  conversions = conversions_str.split(",")
+  conversions.each do |conversion|
+    convert_value_default_units(conversion,"1")
+  end
 end
 
