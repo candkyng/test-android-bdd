@@ -54,7 +54,12 @@ Feature: As the unit converter app user, I would like to be able to retrieve and
     And I should see source value "1"
 
   Scenario: Conversion is added to history when I switch units in the same conversion
-  Scenario: Conversion is moved to the top in history when I run the same conversion units using different values
+    Given I convert "Length" "100" from "Foot" to "Centimeter"
+    When I press the switch unit button
+    And I open History
+    Then Conversion "Length" ("Foot" to "Centimeter") is listed #2 in History
+    And Conversion "Length" ("Centimeter" to "Foot") is listed #1 in History
+
   Scenario: I remove a conversion from history
   Scenario: I remove all conversions from history one by one
   Scenario: I clear all conversions from history
