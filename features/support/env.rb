@@ -31,9 +31,7 @@ def find_in_list(value)
       Appium::TouchAction.new.swipe(start_x:0.5,start_y:0.8,end_x:0.5,end_y:0.2,duration:600).perform
       previous_screen = current_screen
       current_screen = get_source
-
     end
-
   end
   find_element(xpath: "//android.widget.TextView[@text='#{value}']").click
 end
@@ -72,3 +70,5 @@ def find_menu_item_scroll(value,scroll_direction)
   end
 
 end
+
+
