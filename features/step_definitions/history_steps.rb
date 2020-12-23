@@ -55,12 +55,12 @@ And(/^I should see source value "([^"]*)"$/) do |value|
   assert_equal value, source_value
 end
 
-When(/^I create a new custom conversion Weight$/) do
-  pending
+When(/^I create a new custom conversion Weight2$/) do
+  create_custom_conversion_data1
 end
 
 When(/^I click on "([^"]*)" in My Conversions$/) do |conversion|
-  pending
+  get_conversion_in_custom(conversion).click
 end
 
 When(/^I run conversions "([^"]*)" using default units$/) do |conversions|

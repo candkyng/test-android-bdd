@@ -32,17 +32,17 @@ Feature: As the unit converter app user, I would like to be able to retrieve and
     And I should see source value "10"
 
   Scenario: I retrieve a custom conversion from history
-    Given I create a new custom conversion Weight
-    When I click on "Weight" in My Conversions
-    Then Left unit picker value should be "<leftUnit>"
-    And Right unit picker value should be "<rightUnit>"
-    When I type 9 in application keypad
-    Then I should see result as <result>
-    Then Conversion "Weight" ("Foot" to "Centimeter") is listed #1 in History
-    Then Left unit picker value should be "<leftUnit>"
-    And Right unit picker value should be "<rightUnit>"
+    Given I open My conversions
+    And I create a new custom conversion Weight2
+    When I click on "Weight2" in My Conversions
+    And I type 9 in application keypad
+    Then I should see result as 4 082.328
+    When I open History
+    And I click on conversion "Weight2" ("Pound" to "Gram") in the History
+    Then Left unit picker value should be "Pound"
+    And Right unit picker value should be "Gram"
     And I should see source value "9"
-    Then I should see result as <result>
+    Then I should see result as 4 082.328
 
   Scenario: I retrieve a conversion from history which requires scrolling
     When I run conversions "Length, ...." using default units

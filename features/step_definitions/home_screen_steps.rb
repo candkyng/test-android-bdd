@@ -22,16 +22,11 @@ Then(/^Show All button should be (enabled|disabled)$/) do |state|
 end
 
 When(/^I type ([^"]*) in application keypad$/) do |target|
-  digits = target.split("")
-  digits.each do |digit|
-    find_element(id: "keypad").find_element(xpath: "//android.widget.Button[@text='#{digit}']").click
-  end
-
+  tap_key(target)
 end
 
 Then(/^I should see result as ([^"]*)$/) do |result|
-  value = find_element(id: "target_value").text
-  assert_equal value, result
+  assert_equal result, target_value
 end
 
 When(/^Change Left unit picker to "([^"]*)"$/) do |unit|
