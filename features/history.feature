@@ -3,7 +3,7 @@ Feature: As the unit converter app user, I would like to be able to add and retr
 
   Background:
     Given I am on Home screen
-  @wip
+
   Scenario: Conversion is added to history as I run a conversion
     Given I convert "Acceleration" "1" from "Standard Gravity" to "Meter per Second Squared"
     When I open History

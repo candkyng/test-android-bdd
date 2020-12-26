@@ -2,7 +2,7 @@ require "test/unit/assertions"
 require "minitest/autorun"
 
 And(/^I open History$/) do
-  find_element(accessibility_id: "Open navigation drawer").click
+  Appium::TouchAction.new.swipe(start_x:0.01,start_y:0.5,end_x:0.5,end_y:0.5,duration:600).perform
   find_menu_item("History").click
   sleep(1)
 end
