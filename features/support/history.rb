@@ -24,3 +24,17 @@ def find_in_history(conversion, leftUnit, rightUnit)
   end
 
 end
+
+def remove_conversion(conversion, leftUnit, rightUnit)
+  this_conversion = find_in_history(conversion, leftUnit, rightUnit)
+  this_conversion.find_element(id: "deleteIcon").click
+end
+
+def clear_history_button
+  return find_element(id: "btn_clear_history")
+end
+
+def delete_all_dialog_button(text)
+  return find_element(xpath: "//android.widget.Button[@text='#{text}']")
+end
+
