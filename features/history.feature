@@ -1,4 +1,5 @@
-Feature: As the unit converter app user, I would like to be able to retrieve and delete any conversion from history
+@history_add
+Feature: As the unit converter app user, I would like to be able to add and retrieve any conversion from history
 
   Background:
     Given I am on Home screen
@@ -8,6 +9,7 @@ Feature: As the unit converter app user, I would like to be able to retrieve and
     When I open History
     Then Conversion "Acceleration" ("Standard Gravity" to "Meter per Second Squared") is listed #1 in History
 
+  @regression
   Scenario: Conversion is added to the top of history as I run multiple conversions
     Given I convert "Length" "100" from "Foot" to "Centimeter"
     And I convert "Volume" "10" from "Quart" to "Liter"
@@ -20,6 +22,7 @@ Feature: As the unit converter app user, I would like to be able to retrieve and
     And Conversion "Volume" ("Quart" to "Liter") is listed #2 in History
     And Conversion "Length" ("Foot" to "Centimeter") is listed #3 in History
 
+  @regression
   Scenario: I retrieve a conversion from the history list
     Given I convert "Length" "100" from "Foot" to "Centimeter"
     And I convert "Volume" "10" from "Quart" to "Liter"
@@ -60,7 +63,3 @@ Feature: As the unit converter app user, I would like to be able to retrieve and
     Then Conversion "Length" ("Foot" to "Centimeter") is listed #2 in History
     And Conversion "Length" ("Centimeter" to "Foot") is listed #1 in History
 
-  Scenario: I remove a conversion from history
-  Scenario: I remove all conversions from history one by one
-  Scenario: I clear all conversions from history
-  Scenario: I cancel clear all action

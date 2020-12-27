@@ -38,17 +38,18 @@ end
 
 def find_menu_item_scroll(value,scroll_direction)
   if (scroll_direction == "up")
-    y1 = 0.2
-    y2 = 0.8
+    y1 = 0.25
+    y2 = 0.75
   else
-    y1 = 0.8
-    y2 = 0.2
+    y1 = 0.75
+    y2 = 0.25
   end
   current_screen = get_source
   previous_screen = ""
   until (current_screen == previous_screen) do
     menu_items = find_elements(id: "drawerCategoryName")
     menu_items.each do |menu_item|
+      sleep(1)
       if (menu_item.text == value)
         return menu_item
       end
