@@ -1,20 +1,29 @@
 require "appium_lib"
 
-def caps
-{ caps: {
+def opts
+{
+    caps: {
       deviceName: "Anyname",
-      platformName: "Android",
+      platformName: :android,
       app: (File.join(File.dirname(__FILE__ ),"PreciseUnitConversion.apk")),
       appPackage: "com.ba.universalconverter",
       appActivity: "MainConverterActivity",
       newCommandTimeout: 3600,
       automationName: "UiAutomator2"
-
-}}
+    },
+    appium_lib: {
+        wait_timeout: 30,
+        wait_interval: 1
+    }
+}
 end
 
-Appium::Driver.new(caps, true)
+Appium::Driver.new(opts, true)
 Appium.promote_appium_methods Object
+
+def wait_explicitly(seconds)
+  Selenium::WebDriver::Wait.new(:timeout => seconds).until { yield }
+end
 
 def find_in_list(value)
 
