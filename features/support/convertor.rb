@@ -49,11 +49,14 @@ def find_in_list(value)
   find_element(xpath: "//android.widget.TextView[@text='#{value}']").click
 end
 
-def convert_value(conversion,leftUnit,rightUnit,value)
+def open_conversion(conversion)
+  # open conversion
   find_element(accessibility_id: "Open navigation drawer").click
   find_menu_item(conversion).click
-  find_element(id: "action_bar").find_element(xpath: "//android.widget.TextView[@text='#{conversion}']" )
+end
 
+def convert_value(conversion,leftUnit,rightUnit,value)
+  open_conversion(conversion)
   if leftUnit != left_spinner_selected_text()
     find_elements(id: "select_unit_spinner")[0].click
     find_in_list(leftUnit)
@@ -66,8 +69,6 @@ def convert_value(conversion,leftUnit,rightUnit,value)
 end
 
 def convert_value_default_units(conversion,value)
-  find_element(accessibility_id: "Open navigation drawer").click
-  find_menu_item(conversion).click
-  find_element(id: "action_bar").find_element(xpath: "//android.widget.TextView[@text='#{conversion}']" )
+  open_conversion(conversion)
   tap_key(value)
 end

@@ -2,8 +2,9 @@ require "test/unit/assertions"
 require "minitest/autorun"
 
 And(/^I open History$/) do
-  find_element(accessibility_id: "Open navigation drawer").click
+  Appium::TouchAction.new.swipe(start_x:0.01,start_y:0.5,end_x:0.5,end_y:0.5,duration:600).perform
   find_menu_item("History").click
+  sleep(1)
 end
 
 And(/^I see no history right now$/) do
@@ -13,6 +14,7 @@ end
 
 When(/^I convert "([^"]*)" "([^"]*)" from "([^"]*)" to "([^"]*)"$/) do |conversion, value, leftUnit, rightUnit|
   convert_value(conversion,leftUnit,rightUnit,value)
+  sleep(1)
 end
 
 Then(/^Conversion "([^"]*)" \("([^"]*)" to "([^"]*)"\) is listed \#(\d) in History$/) do |conversion, leftUnit, rightUnit, nth|
@@ -35,7 +37,6 @@ end
 
 
 When(/^I click on conversion "([^"]*)" \("([^"]*)" to "([^"]*)"\) in the History$/) do |conversion, leftUnit, rightUnit|
-  sleep(1)
   find_in_history(conversion, leftUnit, rightUnit).click
 end
 
@@ -58,3 +59,26 @@ When(/^I run conversions "([^"]*)" using default units$/) do |conversions_str|
   end
 end
 
+
+And(/^I remove conversion "([^"]*)" \("([^"]*)" to "([^"]*)"\) from History$/) do |conversion, leftUnit, rightUnit|
+  remove_conversion(conversion, leftUnit, rightUnit)
+end
+
+Then(/^conversion "([^"]*)" \("([^"]*)" to "([^"]*)"\) is not found in History$/) do |conversion, leftUnit, rightUnit|
+  assert_nil find_in_history(conversion, leftUnit, rightUnit)
+end
+
+And(/^I press on Clear History button$/) do
+  clear_history_button.click
+  sleep(1)
+end
+
+Then(/^I see Delete history confirmation dialog$/) do
+  text("Delete history?")
+  text("All conversions will be deleted from history")
+end
+
+When(/^I press on ([^"]*) on Delete history confirmation dialog$/) do |button|
+  delete_all_dialog_button(button).click
+  sleep(1)
+end
