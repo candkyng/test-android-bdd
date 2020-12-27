@@ -6,6 +6,7 @@ def find_in_history(conversion, leftUnit, rightUnit)
   current_screen = get_source
   previous_screen = ""
   until (current_screen == previous_screen) do
+    sleep(1)
     # find item in current history screen
     history_items = find_elements(id: "history_single_line")
     history_items.each do |history_item|

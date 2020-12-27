@@ -43,26 +43,24 @@ end
 def create_custom_conversion_data1
 
     create_custom_conversion_link.click
-    sleep(1)
+
     new_conversion_name_text_field.click
     new_conversion_name_text_field.send_keys("Weight2")
     new_unit_button.click
-    sleep(1)
+
     new_unit_name.send_keys("Pound")
     new_unit_symbol.send_keys("lb")
     new_unit_value.send_keys("453.592")
     new_unit_confirm.click
-    sleep(1)
+
     new_unit_button.click
-    sleep(1)
+
     new_unit_name.send_keys("Gram")
     new_unit_symbol.send_keys("g" )
     new_unit_value.send_keys("1")
     new_unit_confirm.click
 
-    sleep(1)
     new_conversion_confirm.click
-    sleep(1)
 
 end
 

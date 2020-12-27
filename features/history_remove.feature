@@ -6,7 +6,7 @@ Feature: As the unit converter app user, I would like to be able to delete any c
     And I convert "Volume" "10" from "Quart" to "Liter"
     And I convert "Area" "1" from "Hectare" to "Are"
 
-  @regression
+  @regression @wip
   Scenario Outline: I remove a conversion from history
     When I open History
     And I remove conversion "<conversion>" ("<leftUnit>" to "<rightUnit>") from History

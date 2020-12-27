@@ -2,9 +2,13 @@ require "test/unit/assertions"
 require "minitest/autorun"
 
 And(/^I open History$/) do
-  Appium::TouchAction.new.swipe(start_x:0.01,start_y:0.5,end_x:0.5,end_y:0.5,duration:600).perform
+  Appium::TouchAction.new.swipe(start_x:0.01,start_y:0.5,end_x:0.6,end_y:0.5,duration:600).perform
+  if !exists { find_element(id: "action_bar").find_element(xpath: "//android.widget.TextView[@text='Unit Converter']" ) }
+    # try one more time if menu does not open
+    Appium::TouchAction.new.swipe(start_x:0.01,start_y:0.5,end_x:0.6,end_y:0.5,duration:600).perform
+  end
   find_menu_item("History").click
-  sleep(1)
+
 end
 
 And(/^I see no history right now$/) do
@@ -14,7 +18,7 @@ end
 
 When(/^I convert "([^"]*)" "([^"]*)" from "([^"]*)" to "([^"]*)"$/) do |conversion, value, leftUnit, rightUnit|
   convert_value(conversion,leftUnit,rightUnit,value)
-  sleep(1)
+
 end
 
 Then(/^Conversion "([^"]*)" \("([^"]*)" to "([^"]*)"\) is listed \#(\d) in History$/) do |conversion, leftUnit, rightUnit, nth|
@@ -32,7 +36,7 @@ Then(/^Conversion "([^"]*)" \("([^"]*)" to "([^"]*)"\) is listed \#(\d) in Histo
   if !units.end_with?(rightUnit)
     fail("right unit is not #{rightUnit}")
   end
-  sleep(1)
+
 end
 
 
@@ -70,7 +74,7 @@ end
 
 And(/^I press on Clear History button$/) do
   clear_history_button.click
-  sleep(1)
+
 end
 
 Then(/^I see Delete history confirmation dialog$/) do
@@ -80,5 +84,5 @@ end
 
 When(/^I press on ([^"]*) on Delete history confirmation dialog$/) do |button|
   delete_all_dialog_button(button).click
-  sleep(1)
+
 end

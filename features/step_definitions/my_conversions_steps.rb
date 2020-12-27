@@ -5,7 +5,7 @@ end
 
 When(/^I press on Create Your First Conversion button$/) do
   create_custom_conversion_link.click
-  sleep(1)
+
 end
 
 Then(/^I enter "([^"]*)" as Conversion Name$/) do |name|
@@ -15,7 +15,7 @@ end
 
 When(/^I press on New Unit button$/) do
   new_unit_button.click
-  sleep(1)
+
 end
 
 Then(/^I enter "([^"]*)" as Name$/) do |name|
@@ -32,12 +32,12 @@ end
 
 And(/^I press on checkmark on top right corner$/) do
   new_unit_confirm.click
-  sleep(1)
+
 end
 
 And(/^I press on OK button$/) do
   new_conversion_confirm.click
-  sleep(1)
+
 end
 
 Then(/^I see "([^"]*)" listed in My Conversions$/) do |conversion|

@@ -61,7 +61,6 @@ And(/^I enter "([^"]*)" in search field$/) do |search_text|
 end
 
 And(/^I press return button on soft keyboard$/) do
-  sleep(2)
   Appium::TouchAction.new.tap(x:0.99,y:0.99, count:1).perform
 end
 

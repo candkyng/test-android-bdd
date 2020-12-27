@@ -1,4 +1,4 @@
 full: --format html --out report.html --format pretty --publish-quiet
 regression: -t @regression --format html --out report.html --format pretty --publish-quiet
 wip: -t @wip --publish-quiet
-full_history: -t @history_add -t @history_remove --format html --out report.html --format pretty --publish-quiet
+history: -t '@history_add or @history_remove' --format html --out report.html --format pretty --publish-quiet

@@ -12,6 +12,7 @@ def opts
       automationName: "UiAutomator2"
     },
     appium_lib: {
+        wait: 5,
         wait_timeout: 30,
         wait_interval: 1
     }
@@ -49,7 +50,7 @@ def find_menu_item_scroll(value,scroll_direction)
   until (current_screen == previous_screen) do
     menu_items = find_elements(id: "drawerCategoryName")
     menu_items.each do |menu_item|
-      sleep(1)
+
       if (menu_item.text == value)
         return menu_item
       end
