@@ -4,12 +4,12 @@ Feature: As the unit converter app user, I would like to be able to add and retr
   Background:
     Given I am on Home screen
 
+  @smoke
   Scenario: Conversion is added to history as I run a conversion
     Given I convert "Acceleration" "1" from "Standard Gravity" to "Meter per Second Squared"
     When I open History
     Then Conversion "Acceleration" ("Standard Gravity" to "Meter per Second Squared") is listed #1 in History
 
-  @regression
   Scenario: Conversion is added to the top of history as I run multiple conversions
     Given I convert "Length" "100" from "Foot" to "Centimeter"
     And I convert "Volume" "10" from "Quart" to "Liter"
@@ -22,7 +22,6 @@ Feature: As the unit converter app user, I would like to be able to add and retr
     And Conversion "Volume" ("Quart" to "Liter") is listed #2 in History
     And Conversion "Length" ("Foot" to "Centimeter") is listed #3 in History
 
-  @regression
   Scenario: I retrieve a conversion from the history list
     Given I convert "Length" "100" from "Foot" to "Centimeter"
     And I convert "Volume" "10" from "Quart" to "Liter"

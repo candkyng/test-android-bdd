@@ -1,13 +1,21 @@
-# test-android-bdd
-## Description
-Automated test for __Unit Converter app__
+## Automated tests for Unit Convertor History feature
+This repository shows the work of the mobile test automation using BDD approach. Specifically,
+ the history feature of a native android app called Unit Convertor was selected to be tested. 
+ Both horizontal and vertical swiping are automated in the tests. For example, opening the main menu by swiping from 
+ left to right as well as finding the desired conversion in the main menu by swiping up and down. 
 
 * Test engine: `cucumber`
 * Test driver: `appium`
 * Test client: `android`
 * Language: `ruby`
 
-## Setup environment on Windows
+Demo of test executions: 
+![screenshot](https://github.com/candkyng/test-android-bdd/blob/main/demo/history_scroll.gif) 
+
+Test report:
+![screenshot](https://github.com/candkyng/test-android-bdd/blob/main/demo/report.png) 
+
+## Setup test environment on Windows
 ### Installation
 1. Install Ruby by [RubyInstaller (WITH DEVKIT option)](https://rubyinstaller.org/downloads/), as cucumber's step definitions and hooks were written in Ruby.
 1. Install [Appium Desktop](http://appium.io/). Click download and select _Appium-windows-version.exe_.
@@ -50,17 +58,13 @@ TIPS: In any case, if you need to modify the above configuration during the test
 ## Run test
 1. Start virtual device
 1. Launch Appium and start server
-1. Launch windows command prompt, navigate to the test-android-bdd project folder and run test with profile:
+1. Launch windows command prompt, navigate to the test-android-bdd project folder and run test with history profile:
 
-    * To run all scenarios: 
+    * To run history scenarios: 
         
-            cucumber -p full
+            cucumber -p history
     
-    * To run regression scenarios: 
-        
-            cucumber -p regression
-
-1. Cucumber profiles "full" and "regression" are configured in _cucumber.yml_ file.
+1. Cucumber profiles are configured in _cucumber.yml_ file.
 1. Test result will be generated in report.html and on command prompt.
 
 ## FAQ:    
