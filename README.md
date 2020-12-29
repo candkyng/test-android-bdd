@@ -1,7 +1,7 @@
 ## Automated tests for Unit Convertor History feature
-This repository shows the work of the mobile test automation using BDD approach. Specifically,
- the history feature of a native android app called Unit Convertor was selected to be tested. 
- Both horizontal and vertical swiping are automated in the tests. For example, opening the main menu by swiping from 
+This repository records my work done on the mobile test automation using BDD approach. Specifically,
+ the history feature of a native android app called Unit Convertor is being tested. 
+ Both horizontal and vertical swipings are automated in the tests. For example, opening the main menu by swiping from 
  left to right as well as finding the desired conversion in the main menu by swiping up and down. 
 
 * Test engine: `cucumber`
@@ -9,8 +9,12 @@ This repository shows the work of the mobile test automation using BDD approach.
 * Test client: `android`
 * Language: `ruby`
 
+### Demo scenario: Retrieve a conversion from history which requires scrolling
 
-![screenshot](https://github.com/candkyng/test-android-bdd/blob/main/demo/history_scroll.gif)![screenshot](https://github.com/candkyng/test-android-bdd/blob/main/demo/report.png) 
+![screenshot](https://github.com/candkyng/test-android-bdd/blob/main/demo/history_scroll.gif)
+
+### Demo test report
+![screenshot](https://github.com/candkyng/test-android-bdd/blob/main/demo/report.png) 
 
 ## Setup test environment on Windows
 ### Installation
