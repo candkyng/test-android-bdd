@@ -9,11 +9,8 @@ This repository shows the work of the mobile test automation using BDD approach.
 * Test client: `android`
 * Language: `ruby`
 
-Demo of test executions: 
-![screenshot](https://github.com/candkyng/test-android-bdd/blob/main/demo/history_scroll.gif) 
 
-Test report:
-![screenshot](https://github.com/candkyng/test-android-bdd/blob/main/demo/report.png) 
+![screenshot](https://github.com/candkyng/test-android-bdd/blob/main/demo/history_scroll.gif)![screenshot](https://github.com/candkyng/test-android-bdd/blob/main/demo/report.png) 
 
 ## Setup test environment on Windows
 ### Installation
