@@ -1,15 +1,18 @@
 ## Automated tests for Unit Convertor History feature
-This repository records my work done on the mobile test automation using BDD approach. Specifically,
- the history feature of a native android app called Unit Convertor is being tested. 
- Both horizontal and vertical swipings are automated in the tests. For example, opening the main menu by swiping from 
- left to right as well as finding the desired conversion in the main menu by swiping up and down. 
+In this repository you will find my mobile automated test scenarios of the history feature in Unit Convertor.
+Unit Convertor is a native android app. When user runs a unit conversion, such as converting a value from cm to inch, 
+a conversion history is added. 
+ The test automation handles different swipe actions. Examples include opening the main menu by swiping from 
+ left to right and finding the desired conversion in the main menu by swiping up and down. 
 
 * Test engine: `cucumber`
 * Test driver: `appium`
-* Test client: `android`
+* Test client:as `android`
 * Language: `ruby`
 
-### Demo scenario: Retrieve a conversion from history which requires scrolling
+### Demo scenario
+* Run enough conversions to build up the history.
+* Then swipe upwards to reach and retrieve the conversion at the bottom of the history.
 
 ![screenshot](https://github.com/candkyng/test-android-bdd/blob/main/demo/history_scroll.gif)
 
@@ -18,13 +21,13 @@ This repository records my work done on the mobile test automation using BDD app
 
 ## Setup test environment on Windows
 ### Installation
-1. Install Ruby by [RubyInstaller (WITH DEVKIT option)](https://rubyinstaller.org/downloads/), as cucumber's step definitions and hooks were written in Ruby.
+1. Install Ruby by [RubyInstaller (WITH DEVKIT option)](https://rubyinstaller.org/downloads/)
 1. Install [Appium Desktop](http://appium.io/). Click download and select _Appium-windows-version.exe_.
 Alternatively, you may install [appium](https://www.npmjs.com/package/appium) directly from NPM provided you already have Nodejs installed.
 
         npm install -g appium
         appium
-1. Install Ruby libraries [_appium_lib_](https://rubygems.org/gems/appium_lib), [_cucumber_](https://rubygems.org/gems/cucumber) and [minitest](https://rubygems.org/gems/minitest) from command line
+1. Install Ruby libraries [_appium_lib_](https://rubygems.org/gems/appium_lib), [_cucumber_](https://rubygems.org/gems/cucumber) and [_minitest_](https://rubygems.org/gems/minitest) from command line
 
         gem install appium_lib
         gem install cucumber
@@ -57,7 +60,7 @@ Choose _without VirtualBox_ option only if you already have _Oracle VM VirtualBo
 TIPS: In any case, if you need to modify the above configuration during the test please restart appium server to pick up the changes!
 
 ## Run test
-1. Start virtual device
+1. Start virtual device (See Wiki page _Start a virtual device_ for more detail)
 1. Launch Appium and start server
 1. Launch windows command prompt, navigate to the test-android-bdd project folder and run test with history profile:
 
